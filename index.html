@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Transparent Window</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: rgba(0, 0, 0, 0);
+      }
+
+      .draggable-area {
+        height: 20px;
+        color: white;
+        -webkit-app-region: drag;
+        padding: 5px;
+        background: #f1f1f1;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+      }
+
+      .right {
+        width: 100%;
+      }
+
+      .closeImg {
+        cursor: pointer;
+      }
+
+      .canvasContainer {
+        text-align: center;
+      }
+
+      .vertical-center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      #search-button {
+        height: 25px;
+        border: none;
+        cursor: pointer;
+      }
+
+      #search-button svg {
+        width: 20px;
+        height: 20px;
+      }
+    </style>
+    <script type="text/javascript">
+      var r1 = 75;
+      var r2 = 50;
+      var r3 = 3;
+
+      function changeCircle(cercle, valeur) {
+        switch (cercle) {
+          case 1:
+            r1 = valeur;
+            break;
+          case 2:
+            r2 = valeur;
+            break;
+          case 3:
+            r3 = valeur;
+            break;
+        }
+        dessineCercles();
+      }
+
+      function load() {
+        console.log("load");
+        document.getElementById("circle1").value = r1;
+        document.getElementById("circle2").value = r2;
+        document.getElementById("circle3").value = r3;
+        dessineCercles();
+      }
+
+      function dessineCercles() {
+        var canvas = document.getElementById("canvasCercles");
+        var ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        dessineCercle(r1, ctx);
+        dessineCercle(r2, ctx);
+        dessineCercle(r3, ctx);
+      }
+
+      function dessineCercle(r, ctx) {
+        ctx.beginPath();
+        ctx.arc(150, 150, r, 0, 2 * Math.PI);
+        ctx.strokeStyle = "#800000";
+        ctx.stroke();
+      }
+    </script>
+  </head>
+  <body onload="load()">
+    <div>
+      <div class="draggable-area">
+        <div class="column right">
+          <div style="float: right;">
+            <button id="search-button">
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                data-prefix="fas"
+                data-icon="times"
+                class="svg-inline--fa fa-times fa-w-11"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 352 512"
+              >
+                <path
+                  fill="#800000"
+                  d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div>
+          <label for="circle1">Cercle 1</label>
+          <input
+            type="number"
+            id="circle1"
+            name="circle1"
+            min="0"
+            max="150"
+            onchange="changeCircle(1, this.value)"
+          />
+        </div>
+        <div>
+          <label for="circle2">Cercle 2</label>
+          <input
+            type="number"
+            id="circle2"
+            name="circle2"
+            min="0"
+            max="150"
+            onchange="changeCircle(2, this.value)"
+          />
+        </div>
+        <div>
+          <label for="circle3">Cercle 3</label>
+          <input
+            type="number"
+            id="circle3"
+            name="circle3"
+            min="0"
+            max="150"
+            onchange="changeCircle(3, this.value)"
+          />
+        </div>
+      </div>
+
+      <div class="canvasContainer">
+        <div class="vertical-center">
+          <canvas id="canvasCercles" width="300" height="300"></canvas>
+        </div>
+      </div>
+    </div>
+    <script>
+      var app = require("electron").remote;
+
+      // Close app
+      document.getElementById("close").addEventListener(
+        "click",
+        () => {
+          app.BrowserWindow.getFocusedWindow().close();
+        },
+        false
+      );
+    </script>
+  </body>
+</html>
