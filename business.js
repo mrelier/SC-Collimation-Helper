@@ -1,6 +1,12 @@
 var r1 = 75;
 var r2 = 15;
 var r3 = 1;
+var o = 100;
+
+function changeOpacity(valeur) {
+    o = valeur;
+    dessineCercles();
+}
 
 function changeCircle(cercle, valeur) {
     switch (cercle) {
@@ -22,6 +28,7 @@ function load() {
     document.getElementById("circle1").value = r1;
     document.getElementById("circle2").value = r2;
     document.getElementById("circle3").value = r3;
+    document.getElementById("opacity").value = o;
     dessineCercles();
 }
 
@@ -37,6 +44,7 @@ function dessineCercles() {
 
 function dessineCercle(r, ctx) {
     ctx.beginPath();
+    ctx.globalAlpha = o / 100;
     ctx.arc(150, 150, r, 0, 2 * Math.PI);
     ctx.strokeStyle = "#DC2A2A";
     ctx.stroke();
