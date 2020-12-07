@@ -2,7 +2,22 @@
 
 Helper to collimate schmidt cassegrain telescope
 
+<img alt="Cybernetically enhanced web apps: Svelte" src="https://github.com/mrelier/SC-Collimation-Helper/blob/master/SCCH.jpg?raw=true">
 
-# todo :
-Mettre un symbole de resize en bas à droite
-shadow sur la fenêtre
+# Features
+
+- Show 3 concentric circles
+- Change their diameter
+- Change global opacity
+
+# installation
+
+```
+yarn
+```
+
+# Lancement
+
+```
+yarn start
+```
