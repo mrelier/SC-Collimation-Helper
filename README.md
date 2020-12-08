@@ -10,13 +10,13 @@ Helper to collimate schmidt cassegrain telescope
 - Change their diameter
 - Change global opacity
 
-# installation
+# Install
 
 ```
 yarn
 ```
 
-# Lancement
+# Run
 
 ```
 yarn start
