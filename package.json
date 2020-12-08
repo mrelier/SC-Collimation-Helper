@@ -5,8 +5,7 @@
   "main": "main.js",
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
-		"build": "electron-builder --mac --windows --linux",
-		"release": "electron-builder --mac --windows --linux --publish always",
+		"build": "rm -rf ./bundle ./dist",
     "start": "electron .",
     "startWithTransparentOption": "electron --enable-transparent-visuals ."
   },
