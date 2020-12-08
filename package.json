@@ -1,23 +1,34 @@
 {
-  "name": "electron-quick-start",
+  "name": "sc-collimation-helper",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "Helper to collimate schmidt cassegrain telescope",
   "main": "main.js",
   "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+		"build": "electron-builder --mac --windows --linux",
+		"release": "electron-builder --mac --windows --linux --publish always",
     "start": "electron .",
     "startWithTransparentOption": "electron --enable-transparent-visuals ."
   },
   "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "RELIER Martial",
+  "license": "MIT",
+  "build": {
+		"appId": "fr.relier.sc-collimation-helper",
+		"productName": "SC Collimation Helper",
+		"mac": {
+			"category": "public.app-category.education"
+		},
+		"dmg": {
+			"icon": false
+		},
+		"linux": {
+			"target": ["AppImage"],
+			"category": "Science"
+		}
+	},
   "devDependencies": {
-    "electron": "^9.3.5"
+    "electron": "^9.3.5",
+    "electron-builder": "^22.9.1"
   }
 }
