@@ -5,7 +5,9 @@
   "main": "main.js",
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
-		"build": "rm -rf ./bundle ./dist",
+    "build:win": "electron-builder --windows",
+    "build:linux": "electron-builder --linux",
+    "build:mac": "electron-builder --mac",
     "start": "electron .",
     "startWithTransparentOption": "electron --enable-transparent-visuals ."
   },
@@ -13,21 +15,23 @@
   "author": "RELIER Martial",
   "license": "MIT",
   "build": {
-		"appId": "fr.relier.sc-collimation-helper",
-		"productName": "SC Collimation Helper",
-		"mac": {
-			"category": "public.app-category.education"
-		},
-		"dmg": {
-			"icon": false
-		},
-		"linux": {
-			"target": ["AppImage"],
-			"category": "Science"
-		}
-	},
+    "appId": "fr.relier.sc-collimation-helper",
+    "productName": "SC Collimation Helper",
+    "mac": {
+      "category": "public.app-category.education"
+    },
+    "dmg": {
+      "icon": false
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Science"
+    }
+  },
   "devDependencies": {
-    "electron": "^9.3.5",
+    "electron": "^11.0.4",
     "electron-builder": "^22.9.1"
   }
 }
