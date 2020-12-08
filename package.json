@@ -9,7 +9,7 @@
     "start": "electron .",
     "startWithTransparentOption": "electron --enable-transparent-visuals ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/drouian-m/SC-Collimation-Helper",
   "author": "RELIER Martial",
   "license": "MIT",
   "build": {
