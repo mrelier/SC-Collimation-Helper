@@ -2,7 +2,7 @@
 
 Helper to collimate schmidt cassegrain telescope
 
-<img alt="Cybernetically enhanced web apps: Svelte" src="https://github.com/mrelier/SC-Collimation-Helper/blob/master/SCCH.jpg?raw=true">
+![Cybernetically enhanced web apps: Svelte](assets/SCCH.jpg)
 
 # Features
 
